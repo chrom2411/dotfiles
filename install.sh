@@ -5,7 +5,7 @@ echo 'check "C:\msys64\msys2_shell.cmd"!!!' 1>&2
 echo '"set MSYS=winsymlinks:nativestrict" must be enabled' 1>&2
 echo 'and must be Administrator!' 1>&2
 
-for f in .??*
+for f in .??* bin
 do
 	[[ "$f" == ".git" ]] && continue
 	[[ "$f" == ".DS_Store" ]] && continue

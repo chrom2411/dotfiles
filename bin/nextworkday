@@ -1,0 +1,30 @@
+#!/bin/bash
+# nextworkday [yyyymmdd] [holidaysfile]
+#
+LANG=C
+declare -i day=${1:-$(date +%Y%m%d)}
+declare holidaysfile=$2
+
+if [[ ! ${holidaysfile} ]]; then
+	holidaysfile=$(mktemp)
+	getholidays >${holidaysfile}
+fi
+
+day=$(date -d "${day} 1 day" +%Y%m%d)
+case $(date -d ${day} +%a) in
+	'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri')
+		if grep ${day} ${holidaysfile} >/dev/null; then
+			$0 ${day} ${holidaysfile}
+		else
+			echo $day
+		fi
+		;;
+	'Sat' | 'Sun')
+		$0 ${day} ${holidaysfile}
+		;;
+esac
+
+if [[ ! $2 ]]; then
+	rm ${holidaysfile}
+fi
+
