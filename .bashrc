@@ -110,6 +110,9 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 # alias l='ls -CF'                              #
 
+# Prompt
+export PS1='\[\e[33m\]\w\[\e[0m\] \$ '
+
 # Umask
 #
 # /etc/profile sets 022, removing write perms to group + others.
