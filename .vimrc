@@ -50,8 +50,8 @@ set cursorline
 set list listchars=tab:\▸\-,trail:~,eol:↲,extends:»,precedes:«,nbsp:%
 set foldmethod=indent
 "set foldlevel=999 "Don't autofold anything
-set showtabline=2
-set tabstop=2 shiftwidth=2
+set showtabline=4
+set tabstop=4 shiftwidth=4
 
 " nathanaelkane/vim-indent-guides
 " http://wonderwall.hatenablog.com/entry/2016/03/21/205741
